@@ -1,6 +1,7 @@
 //Global variables
 let localStorage = window.localStorage;
 let back;
+let COLOR;
 let numClicks = 0;
 let colorClicked = 0;
 let brushColor = 0;
@@ -12,13 +13,10 @@ function preload() {
 }
 
 function setup() {
-  brushColor = color(50);
+  COLOR= color(50);
   createCanvas(700, 468);
   background(255);
   
-  menu = new Menu();
-  menu.showMenu();
-  menu.showTools();
   frameRate(60);
 
 
@@ -30,6 +28,8 @@ function setup() {
   let button4;
   let button5;
   let button6;   
+
+  let color1;
 
    button1 = createImg("assets/1.png", "Image")
    button1.position(15,50).mousePressed(Pencil)
@@ -44,6 +44,10 @@ function setup() {
      button5.position(15,350).mousePressed(eraser)
      button6 = createImg("assets/6.png", "Image")
      button6.position(15,425).mousePressed(Restore)
+
+     color1 = createImg("assets/color1.png", "Image")
+     color1.position(70,5).mousePressed(Color1)
+     
   
 
 }
@@ -54,9 +58,13 @@ function draw() {
       
       }
 
+  function Color1() {
+    COLOR = color('red')
+  }
+
   function Pencil() {
     STROKE = 1
-    brushColor = color(50)
+    brushColor = COLOR
   }
   function eraser() {
     brushColor = color(255)
@@ -65,12 +73,12 @@ function draw() {
 
   function Brush1() {
     STROKE = 5
-    brushColor = color(50)
+    brushColor = COLOR
   }
 
   function Brush2() {
     STROKE = 10
-    brushColor = color(50)
+    brushColor = COLOR
   }
   function Restore() {
     let item = localStorage.getItem('return')
