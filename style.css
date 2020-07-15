@@ -1,6 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-image: url('https://static.guiainfantil.com/media/16558/c/dibujos-de-tortugas-para-imprimir-y-colorear-xs.jpg'); 
+  background-repeat: no-repeat;
 }
 canvas {
   display: block;
